@@ -23,7 +23,10 @@
         <link rel='stylesheet' id='style_fliexslider-css'  href='http://finance.neuromama.com/wp-content/themes/business-news/layout/plugins/flexslider/flexslider.css?ver=2.1' type='text/css' media='screen' />
         <link rel='stylesheet' id='style_wlm_custom-css'  href='http://finance.neuromama.com/wp-content/themes/business-news/functions/custom-css-main.php?ver=1.0.0' type='text/css' media='screen' />
         <!-- Skitter Styles -->
+        <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Orienta' rel='stylesheet' type='text/css'>
         <link href="css/skitter.styles.css" type="text/css" media="all" rel="stylesheet" />
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <!-- platinum seo pack 1.3.7 -->
         <meta name="robots" content="index,follow,noodp,noydir" />
         <link rel="canonical" href="http://finance.neuromama.com/" />
@@ -155,8 +158,12 @@
                                     <li id="menu-item-64" class="menu-item menu-item-64">
                                         <a title="Media" href="http://finance.neuromama.com/media/">Media</a>
                                     </li>
-                                    
+                                    <form class="searchform">
+    <input class="searchfield" type="text" value="Stock symbol..." onfocus="if (this.value == 'tock symbol...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Stock symbol...';}" />
+    <input class="searchbutton" type="button" value="Go" />
+    </form>
                                 </ul>
+
                             </nav>
                         </div>
                     </section>
@@ -216,11 +223,10 @@
                                                     foreach($items as $item){
                                                         if($i<5){
                                                             //echo "<div id=\"news$i\">";
-                                                            
                                                             $i++;
                                                             $full_image = str_replace("-120x90","",$item->children('media',true)->attributes()->url);
                                                             //echo "<li><a href=\"".$item->link."\" target=\"_blank\"><img src=\"".$item->children('media',true)->attributes()->url."\" class=\"block\"/></a><div class=\"label_text\"><p>".$item->title."</p></div></li>";
-                                                            echo "<li><img src=\"".$full_image."\" class=\"block\"/><div class=\"label_text\"><p>".$item->title."</p></div></li>";
+                                                            echo "<li><img src=\"$full_image\" class=\"block\"/><div class=\"label_text\"><p>".$item->title."</p></div></li>";
                                                         }
                                                         else
                                                             break;
@@ -291,10 +297,10 @@
                                 </div>
                                 <div style="float: left;width:400px; height:200px;">
                                 <?php
-                                    echo $item->pubDate."</br></br>";
-                                    echo "<a href=\"".$item->link."\" target=\"_blank\">".$item->title."</a>";
+                                    echo "<p class = \"publ_news\">".$item->pubDate."</p></br>";
+                                    echo "<a class=\"links_news\" href=\"".$item->link."\" target=\"_blank\">".$item->title."</a>";
                                     echo "</br></br>";
-                                    echo $item->description;
+                                    echo "<p class=\"p_news\">".$item->description."</p></br>";
                                    
                                     //echo "Link: ".$item->link;
                                     //echo "</br>";
