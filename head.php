@@ -1,4 +1,5 @@
   <?php
+  date_default_timezone_set('America/Los_Angeles'); 
 if(isset($_POST['submit']))
 {
 //Do all the submission part or storing in DB work and all here
@@ -43,57 +44,82 @@ header('Location: stock_search.php');
                             <div class="clearboth"></div>
                         </div>
                     </section>
-                                    
+                                  
                     <section class="bottom">
+                        
                         <div class="inner">
-                            <div id="logo_top" style="margin-top: -4px; margin-left: 0px; ">
+                            <div id="logo_top" style=" margin-left: 0px; ">
                                 <a href="http://finance.neuromama.com">
-                                    <img src="http://finance.neuromama.com/wp-content/uploads/2013/06/Top.logo_2.png" alt="Finance NeuroMama" title="Finance NeuroMama">
+                                    <img src="wp-content/themes/business-news/images/log_finance.png" alt="Finance NeuroMama" title="Finance NeuroMama" width="320px">
                                 </a>
                             </div>
+                            
                                                     
                             <div class="block_today_date">
                                 <div class="num">
-                                    <p id="num_top_day">24</p>
+                                    <p id="num_top_day"><?php echo date("d");?></p>
                                 </div>
                                 <div class="other">
                                     <p class="month_year">
-                                        <span id="month_top_display">Jun</span>, <span id="year_top_display">2013</span>
+                                        <span id="month_top_display"><?php echo date("M");?></span>, <span id="year_top_display"><?php echo date("Y");?></span>
                                     </p>
-                                    <p id="day_top_display" class="day">Monday</p>
+                                    <p id="day_top_display" class="day"><?php echo date("l");?></p>
                                 </div>
                             </div>
-                            <div class="fr"></div>
+                              
+                            <div class="fr">
+                                <form style="width:200px"class="search_neuro cf">
+                                    <input type="text" placeholder="Search on Neuromama.com..." required>
+                                    <button type="submit">Search</button>
+                                </form> 
+                            </div>
                             <div class="clearboth"></div>
                         </div>
+
                     </section>
-                                    
+                                   
                     <section class="section_main_menu">
                         <div class="inner">
                             <nav class="main_menu">
                                 <ul id="main-primary-menu" class="">
+                                   
                                     <li id="menu-item-22" class="menu-item menu-item-22">
-                                        <a title="Home" href="/">Home</a>
+                                        <a title="Home" href="index.php">Home</a>
                                     </li>
                                     <li id="menu-item-63" class="menu-item menu-item-63">
-                                        <a title="Markets" href="markets/">Markets</a>
+                                        <a title="Markets" href="news.php?t=markets">Markets</a>
                                     </li>
                                     <li id="menu-item-21" class="menu-item menu-item-21">
-                                        <a title="Business" href="business/">Business</a>
+                                        <a title="Business" href="news.php?t=business">Business</a>
                                     </li>
-                                    <li id="menu-item-20" class="menu-item menu-item-20">
-                                        <a title="Technology" href="http://finance.neuromama.com/technology/">Technology</a>
-                                        <ul class="sub-menu">
-                                            <li id="menu-item-65" class="menu-item menu-item-65"><a title="Science" href="http://finance.neuromama.com/science/">Science</a></li>
+                                    <li id="menu-item-22" class="menu-item menu-item-23">
+                                        <a title="News" href="news.php?t=all">News</a>
+                                        <ul id="sub-menu">
+                                            <li id="menu-item-67" class="menu-item menu-item-67">
+                                                <a title="All News" href="news.php?t=all">All News</a>
+                                            </li>
+                                            <li id="menu-item-79" class="menu-item menu-item-79">
+                                                <a title="Americas" href="news.php?t=americas">Americas</a>
+                                            </li>
+                                            <li id="menu-item-66" class="menu-item menu-item-66">
+                                                <a title="Africa" href="news.php?t=africa">Africa</a>
+                                            </li>
+                                            <li id="menu-item-68" class="menu-item menu-item-68">
+                                                <a title="Asia" href="news.php?t=asia">Asia</a>
+                                            </li>
+                                            <li id="menu-item-71" class="menu-item menu-item-71"><a title="BRICS" href="news.php?t=brics">BRICS</a></li>
+                                            <li id="menu-item-73" class="menu-item menu-item-73"><a title="Europe" href="news.php?t=europe">Europe</a></li>
+                                            <li id="menu-item-75" class="menu-item menu-item-75"><a title="Middle East" href="news.php?t=middle east">Middle East</a></li>
+                                            <li id="menu-item-78" class="menu-item menu-item-78"><a title="USA" href="news.php?t=usa">USA</a></li>
                                         </ul>
                                     </li>
-                                    <li id="menu-item-64" class="menu-item menu-item-64">
-                                        <a title="Media" href="http://finance.neuromama.com/media/">Media</a>
+                                    <li id="menu-item-20" class="menu-item menu-item-20">
+                                        <a title="Technology" href="news.php?t=technology">Technology</a>     
                                     </li>
-                                        <form class="searchform" name="upcoming_form"action="stock_search.php" method="get">
-                                            <input class="searchfield" type="text" id="symbol" name="s" value="" placeholder="Stock Symbol..." />
-                                            <input class="searchbutton" id='find_symbol' value="Go"  type="submit"/>
-                                        </form>
+                                    <li id="menu-item-64" class="menu-item menu-item-64">
+                                        <a title="Media" href="news.php?t=media">Media</a>
+                                    </li>
+                                        
                                         
 
 
@@ -117,30 +143,16 @@ header('Location: stock_search.php');
 
                     <section class="section_secondary_menu">
                         <div class="inner">
-                            <nav class="secondary_menu">
-                                <ul id="main-secondary-menu" class="">
-                                    <li id="menu-item-67" class="menu-item menu-item-67">
-                                        <a title="All News" href="http://finance.neuromama.com/all-news/">All News</a>
-                                    </li>
-                                    <li id="menu-item-79" class="menu-item menu-item-79">
-                                        <a title="World" href="http://finance.neuromama.com/world/">World</a>
-                                    </li>
-                                    <li id="menu-item-66" class="menu-item menu-item-66">
-                                        <a title="Africa" href="http://finance.neuromama.com/africa/">Africa</a>
-                                    </li>
-                                    <li id="menu-item-68" class="menu-item menu-item-68">
-                                        <a title="Asia" href="http://finance.neuromama.com/asia/">Asia</a>
-                                    </li>
-                                    <li id="menu-item-71" class="menu-item menu-item-71"><a title="BRICS" href="http://finance.neuromama.com/brics/">BRICS</a></li>
-                                    <li id="menu-item-73" class="menu-item menu-item-73"><a title="Europe" href="http://finance.neuromama.com/europe/">Europe</a></li>
-                                    <li id="menu-item-75" class="menu-item menu-item-75"><a title="Middle East" href="http://finance.neuromama.com/middle-east/">Middle East</a></li>
-                                    <li id="menu-item-78" class="menu-item menu-item-78"><a title="USA" href="http://finance.neuromama.com/usa/">USA</a></li>
-                                </ul>
-                            </nav>
+                             <form class="searchform" name="upcoming_form"action="stock_search.php" method="get">
+                                        <input class="searchfield" type="text" id="symbol" name="s" value="" placeholder="Stock Symbol..." />
+                                        <input value="su" name="o" style="display:none"/>
+                                        <input class="searchbutton" id='find_symbol' value="Go"  type="submit"/>
+                                        </form>
                             <div class="block_clock">
-                                <p>Time: <span id="time_display">4:06 am</span></p>
+                                <p>Time: <span id="time_display"><?php echo date("g");echo ":";echo date("i"); echo " ".date("a"). " (PDT)";?></span></p>
                             </div>
                         </div>
+                        
                     </section>
                                     
                 </div>

@@ -15,7 +15,7 @@
             <div id="content"  class="right_sidebar">
                 
                 <div class="inner">
-                    <div class="markets_real_time" style="width:960px; padding:0px 9px;">
+                    <div class="markets_real_time" style="width:960px; padding:0px 9px; border: 2px solid rgb(234, 234, 234);">
                         <script src="http://markets.financialcontent.com/stocks?Module=tickerbar&Output=JS"></script>
                     </div>
                     <div class="general_content">
@@ -25,7 +25,11 @@
                                     <div class="border_box">
                                         <div class="box_skitter box_skitter_large">
                                             <ul>
-                                                <?php
+                                                <li><img class="block"src="http://i2.cdn.turner.com/money/dam/assets/130628152842-student-studying-620xa.jpg" width="600px"><div class="label_text"><p>STUDENT RATES TO DOUBLE MONDAY<p></div></li>
+                                                <li><img class="block"src="http://i2.cdn.turner.com/money/dam/assets/130627144357-hurt-rate-spike-620xa.jpg" width="600px"><div class="label_text"><p>STUDENT RATES TO DOUBLE MONDAY<p></div></li>
+                                                <li><img class="block"src="http://i2.cdn.turner.com/money/dam/assets/130628125235-lookahead-chart-620xa.png" width="600px"><div class="label_text"><p>STUDENT RATES TO DOUBLE MONDAY<p></div></li>
+                                                <li><img class="block"src="http://i2.cdn.turner.com/money/dam/assets/130628113556-fslr-v-sp-500-620xa.png" width="600px"><div class="label_text"><p>STUDENT RATES TO DOUBLE MONDAY</p></div></li>
+                                                <?php /*
                                                     $i=0;
                                                     $url = "http://news.google.com/?ned=us&topic=t&output=rss"; // url of google news
                                                     $xml = simplexml_load_file('http://rss.cnn.com/rss/money_topstories.rss'); //loading the document
@@ -41,7 +45,7 @@
                                                         }
                                                         else
                                                             break;
-                                                    }
+                                                    }*/
                                                 ?>
                                                
                                             </ul>
@@ -74,13 +78,13 @@
                                     echo "<div id=\"news$i\">";
                                     $i++;
                                 ?>
-                                <div style="float: left; width:200px; height:200px;">
+                                <div style="float: left; width:200px; height:145px;">
                                     <a href="<?php echo $item->link;?>" target="_blank">
                                         <div style=" margin: auto; width:150px; height:90px; background-image: url(<?php echo $item->children('media',true)->attributes()->url;?>); background-size: 120px 90px;">
                                         
                                         </div></a>
                                 </div>
-                                <div style="float: left;width:400px; height:200px;">
+                                <div style="float: left;width:400px; height:145px;">
                                 <?php
                                     echo "<p class = \"publ_news\">".$item->pubDate."</p></br>";
                                     echo "<a class=\"links_news\" href=\"".$item->link."\" target=\"_blank\">".$item->title."</a>";
@@ -109,7 +113,8 @@
                         </div>
                         
                         <div class="sidebar">
-                            <script src="http://markets.financialcontent.com/stocks?Module=snapshot&Ticker=$COMP+NERO+GOOG+FB&Output=JS"></script>
+                            <script src="http://markets.financialcontent.com/stocks?Module=snapshot&Ticker=$COMP+NERO+GOOG+FB+AMZN&Output=JS"></script>
+                            <img src="wp-content/themes/business-news/images/Advertising.png"></img>
                             <script type="text/javascript" src="http://cdn.widgetserver.com/syndication/subscriber/InsertWidget.js"></script>
                             <script type="text/javascript">if (WIDGETBOX) WIDGETBOX.renderWidget('197fb3d1-b4b4-416d-8ebc-5a0c319221ee');</script>
                         </div>

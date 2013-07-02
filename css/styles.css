@@ -1,9 +1,319 @@
-* { margin:0; padding: 0; list-style: none; }
-body { font-family: Arial,Tahoma; color:#333; background: #eee; }
 
-#page { margin: 0 auto; width: 800px; background: #fff; padding:40px; margin-top: 20px; margin-bottom: 20px; border: 1px solid #777; box-shadow: #999 1px 1px 3px; }
-#page h1 { font-weight: normal; font-size: 32px; letter-spacing: -2px; margin:0 0 20px 0; border-bottom: 1px solid #ddd; padding:0 0 10px 0; }
-#page h2 { font-weight: bold; font-size: 22px; letter-spacing: -1px; font-style: italic; margin:40px 0 0 0; }
-#page h3 { float: right; }
-#page h3 a { font-weight: normal; font-size: 16px; color:#004499; }
-#page h3 a:hover { color:#333; }
+
+.error_stock{
+	margin-top: 18px;
+	padding-bottom: 5px;
+	font-family:  Helvetica, Arial, sans-serif;
+	font-size: 18px;
+	text-align: center;
+	color: red;
+	margin-bottom: 6px;
+
+}
+.stock_info{
+	margin-top: 18px;
+	padding-bottom: 5px;
+	border-bottom: 2px solid #000;
+	font-family:  'Lato';
+	font-weight: 200px;
+	font-size: 25.5px;
+	text-align: center;
+	color: #000;
+	margin-bottom: 6px;
+	margin-bottom: 8px;
+}
+#cssmenu{
+	margin: 0 auto;
+}
+#cssmenu .hd{
+	padding-top: 5px;
+	padding-bottom: 10px;
+	font-family: 'Roboto', sans-serif;
+	font-size: 19px;
+	text-align: center;
+	color: #000;
+}
+#cssmenu h3{
+	padding-top: 8px;
+	padding-bottom: 3px;
+	font-family:  Helvetica, Arial, sans-serif;
+	color: #383838;
+	background-color: #9a9a9a;
+	text-decoration: none;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 14px;
+	width: 248px;
+}
+#cssmenu > ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	vertical-align: baseline;
+	line-height: 1;
+}
+
+/* The container */
+#cssmenu > ul {
+	display: block;
+	position: relative;
+	width:70px;
+}
+
+	/* The list elements which contain the links */
+	#cssmenu > ul li {
+		display: block;
+		position: relative;
+		margin: 0;
+		padding: 0;
+		width: 70px;	
+	}
+
+		/* General link styling */
+		#cssmenu > ul li a {
+			/* Layout */
+			display: block;
+			position: relative;
+			margin: 0;
+			border-top: 1px dotted #fff;
+			border-bottom: 1px dotted #d9d9d9;
+			padding: 4px 4px;
+			width: 240px;
+
+			/* Typography */
+			font-family:  Helvetica, Arial, sans-serif;
+			color: #f06343;
+			text-decoration: none;
+			text-transform: uppercase;
+			text-shadow: 0 1px 0 #fff;
+			font-size: 12px;
+
+			/* Background & effects */
+			background: #eaeaea;
+		}
+
+		/* Rounded corners for the first link of the menu/submenus */
+		#cssmenu > ul li:first-child>a {
+			border-top-left-radius: 2px;
+			border-top-right-radius: 2px;
+			border-top: 0;
+		}
+
+		/* Rounded corners for the last link of the menu/submenus */
+		#cssmenu > ul li:last-child>a {
+			border-bottom-left-radius: 2px;
+			border-bottom-right-radius: 2px;
+			border-bottom: 0;
+		}
+
+
+		/* The hover state of the menu/submenu links */
+		#cssmenu > ul li>a:hover, #cssmenu > ul li:hover>a {
+			color: #fff;
+			text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+			background: #f06343;
+			background: -webkit-linear-gradient(bottom, #f06343, #f27d63);
+			background: -ms-linear-gradient(bottom, #f06343, #f27d63); 
+			background: -moz-linear-gradient(bottom, #f06343, #f27d63);
+			background: -o-linear-gradient(bottom, #f06343, #f27d63);
+			border-color: transparent;
+		}
+
+		/* The arrow indicating a submenu */
+		#cssmenu > ul .has-sub>a::after {
+			content: '';
+			position: absolute;
+			top: 4px;
+			right: 4px;
+			width: 0px;
+			height: 0px;
+
+			/* Creating the arrow using borders */
+			border: 4px solid transparent;
+			border-left: 4px solid #e4433c; 
+		}
+
+		/* The same arrow, but with a darker color, to create the shadow effect */
+		#cssmenu > ul .has-sub>a::before {
+			content: '';
+			position: absolute;
+			top: 4px;
+			right: 4px;
+			width: 0px;
+			height: 0px;
+
+			/* Creating the arrow using borders */
+			border: 4px solid transparent;
+			border-left: 4px solid #fff;
+		}
+
+		/* Changing the color of the arrow on hover */
+		#cssmenu > ul li>a:hover::after, #cssmenu > ul li:hover>a::after {
+			border-left: 4px solid #fff;
+		}
+
+		#cssmenu > ul li>a:hover::before, #cssmenu > ul li:hover>a::before {
+			border-left: 4px solid rgba(0, 0, 0, .25);
+		}
+
+	
+		/* THE SUBMENUS */
+		#cssmenu > ul ul {
+			position: absolute;
+			left: 70px;
+			top: -9999px;
+			padding-left: 5px;
+			opacity: 0;
+			/* The fade effect, created using an opacity transition */
+			-webkit-transition: opacity .3s ease-in;
+			-moz-transition: opacity .3s ease-in;
+			-o-transition: opacity .3s ease-in;
+			-ms-transition: opacity .3s ease-in;
+		}
+
+		/* Showing the submenu when the user is hovering the parent link */
+		#cssmenu > ul li:hover>ul {
+			top: 0px;
+			opacity: 1;
+		}
+/*TABLE RESULTS*/
+#hi table { margin: 1em; border-collapse: separate; }
+#hi td { padding-left: 10px; padding-right: 18px; font-style:bold;color: #000; border: 1px #ccc solid;border-collapse: separate; font-family: consolas; text-align: right;}
+#hi th { padding: .3em; border: 0px #ccc solid; border-collapse: inherit;font-family: 'Lato';
+font-weight: 200;
+font-size: 16px; }
+#hi thead {  }
+#hi tbody {
+}
+#hi tr.hi { background: #c4c4c4; }
+#hi td:hover{
+	color: #fff;
+			text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+			background: #f06343;
+			background: -webkit-linear-gradient(bottom, #f06343, #f27d63);
+			background: -ms-linear-gradient(bottom, #f06343, #f27d63); 
+			background: -moz-linear-gradient(bottom, #f06343, #f27d63);
+			background: -o-linear-gradient(bottom, #f06343, #f27d63);
+			border-color: transparent;
+
+
+}
+/*SEARCH BAR*/
+a {
+        color: #ccc;
+    }
+    
+    /*-------------------------------------*/
+    
+    .cf:before, .cf:after{
+      content:"";
+      display:table;
+    }
+    
+    .cf:after{
+      clear:both;
+    }
+
+    .cf{
+      zoom:1;
+    }
+
+    /*-------------------------------------*/	
+    
+    .search_neuro {
+        width: 200px;
+        padding: 15px;
+        
+        float: right;
+       
+    }
+    
+    .search_neuro input {
+        width: 150px;
+        height: 20px;
+        padding: 5px 2px;
+        float: left;    
+        font: bold 10px 'lucida sans', 'trebuchet MS', 'Tahoma';
+        border: 0;
+        background: #eee;
+        -moz-border-radius: 3px 0 0 3px;
+        -webkit-border-radius: 3px 0 0 3px;
+        border-radius: 3px 0 0 3px;      
+    }
+    
+    .search_neuro input:focus {
+        outline: 0;
+        background: #fff;
+        -moz-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+        -webkit-box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+        box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+    }
+    
+    .search_neuro input::-webkit-input-placeholder {
+       color: #999;
+       font-weight: normal;
+       font-style: italic;
+    }
+    
+    .search_neuro input:-moz-placeholder {
+        color: #999;
+        font-weight: normal;
+        font-style: italic;
+    }
+    
+    .search_neuro input:-ms-input-placeholder {
+        color: #999;
+        font-weight: normal;
+        font-style: italic;
+    }    
+    
+    .search_neuro button {
+		overflow: visible;
+        position: relative;
+        float: right;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        height: 30px;
+        width: 45px;
+        font: bold 10px 'lucida sans', 'trebuchet MS', 'Tahoma';
+        color: #fff;
+        text-transform: uppercase;
+        background: #d83c3c;
+        -moz-border-radius: 0 3px 3px 0;
+        -webkit-border-radius: 0 3px 3px 0;
+        border-radius: 0 3px 3px 0;      
+        text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+    }   
+      
+    .search_neuro button:hover{		
+        background: #e54040;
+    }	
+      
+    .search_neuro button:active,
+    .search_neuro button:focus{   
+        background: #c42f2f;    
+    }
+    
+    .search_neuro button:before {
+        content: '';
+        position: absolute;
+        border-width: 8px 8px 8px 0;
+        border-style: solid solid solid none;
+        border-color: transparent #d83c3c transparent;
+        top: 8px;
+        left: -6px;
+    }
+    
+    .search_neuro button:hover:before{
+        border-right-color: #e54040;
+    }
+    
+    .search_neuro button:focus:before{
+        border-right-color: #c42f2f;
+    }    
+    
+    .search_neuro button::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
