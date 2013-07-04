@@ -26,15 +26,15 @@
 										echo $image;
 									}
 									else{
-										echo "&nbsp";
+										echo "<img width=200px src=\"wp-content/themes/business-news/images/stocks.png\"></img>";
 									}
 								?>
 							</div>
-							<div id="p_news" style="postion:relative; float:left; width:390px; ">
+							<div class="p_news1" style="postion:relative; float:left; width:390px; ">
 								<?php
 									echo $item->pubDate."</br></br>";
 
-									echo "<a href=\"".$item->link."\" target=\"_blank\">".$item->title."</a>";
+									echo "<a class=\"links_news\" href=\"".$item->link."\" target=\"_blank\">".$item->title."</a>";
 									echo "</br></br>";
 									if($bool){
 										echo $bfimg;

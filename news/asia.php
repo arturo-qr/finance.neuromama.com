@@ -25,7 +25,7 @@
 							echo $image;
 						}
 						else{
-							echo "<img width=200px src=\"wp-content/themes/business-news/images/stocks.jpg\"></img>";
+							echo "<img width=200px src=\"wp-content/themes/business-news/images/stocks.png\"></img>";
 						}
 					?>
 				</div>

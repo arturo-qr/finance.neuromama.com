@@ -3,8 +3,7 @@
     $symbol = $_GET['s'];
     $option = $_GET['o'];
     
-    $info=quotes($symbol,'select * from yahoo.finance.quotes where symbol=');
-    $info_keys=keystats($symbol,'select * from yahoo.finance.keystats where symbol=');
+    $info_option=keystats($symbol,'SELECT * FROM yahoo.finance.oquote WHERE symbol=');
     
 ?>
 <!DOCTYPE html>
@@ -62,7 +61,7 @@
                             echo "<div id=\"nav_bar_stock\" style=\"height: 1280px; width: 300px;\">";
                                 echo "<div class=\"error_stock\">Symbol stock not found</div>";
                                 echo "</div>";
-                                echo "<img src=\"wp-content/themes/business-news/images/Advertising.png\"></img>";
+                                echo "<img src=\"wp-content/themes/business-news/images/a_1.png\"></img>";
                         }
                         
                         ?>

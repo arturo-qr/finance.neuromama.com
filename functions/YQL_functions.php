@@ -93,7 +93,8 @@
 		$symbol = "\"".$symbol."\"  ";		
 		$api = 'http://query.yahooapis.com/v1/public/yql?q=';		
 		$query = $query.$symbol." AND expiration=".$date;		
-		$params = '&env=http://datatables.org/alltables.env&format=json';		
+		$params = '&env=http://datatables.org/alltables.env&format=json';
+		
 		$session = curl_init($api.urlencode($query).$params);		
 		curl_setopt($session, CURLOPT_RETURNTRANSFER,true);  		
 		$json = curl_exec($session);		
@@ -103,7 +104,27 @@
 			return -1;		
 		}		
 		if(!is_null($yqlObj->query->results)){			
-			return $yqlObj->query->results->stats;		
+			return $yqlObj->query->results->optionsChain->option;		
+		}		
+		return -1;	
+	}
+	function option_symbol($symbol,$query){		
+		$array =array();		
+		$symbol = "\"".$symbol."\"  ";		
+		$api = 'http://query.yahooapis.com/v1/public/yql?q=';		
+		$query = $query.$symbol;	
+		$params = '&env=http://datatables.org/alltables.env&format=json';
+		
+		$session = curl_init($api.urlencode($query).$params);		
+		curl_setopt($session, CURLOPT_RETURNTRANSFER,true);  		
+		$json = curl_exec($session);		
+		curl_close($session);		
+		$yqlObj =  json_decode($json);		
+		if(is_null($yqlObj)){
+			return -1;		
+		}		
+		if(!is_null($yqlObj->query->results)){			
+			return $yqlObj->query->results->option;		
 		}		
 		return -1;	
 	}	

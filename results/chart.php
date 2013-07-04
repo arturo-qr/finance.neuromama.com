@@ -14,7 +14,7 @@
 		//$scale = (is_null($_GET['l']) ? $scales[0] : $_GET['l']);
 		//$scale = (in_array($scale,$scales) ? $scale : $scales[0]);
 	?>
-	<img id="chart" src="http://chart.finance.yahoo.com/z?s=<?php echo $symbol."&t=1d&q=l";?>" />
+	<img id="chart" src="http://chart.finance.yahoo.com/z?s=<?php echo $symbol."&t=5d&q=l";?>" />
 	<p>
 	<!--  
 		Range: 

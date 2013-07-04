@@ -195,9 +195,38 @@ font-size: 16px; }
 			background: -moz-linear-gradient(bottom, #f06343, #f27d63);
 			background: -o-linear-gradient(bottom, #f06343, #f27d63);
 			border-color: transparent;
-
+}
+/*ORDER BOOK */
+#book{
+	width: 290px;
+float: left;
+}
+table.ord {margin: 5px -1px 2em 0;
+border: 1px solid #a7a7a7;
+float: left;
+width: 142px;
 
 }
+.ord tbody{
+	font-family: 'Lato';
+font-size: 16px;
+font-weight: 200;
+}
+.ord th {font-weight:bold;background:#EDF2F5;text-align:center;color:#000;}
+			.ord td {background:#FFF;border-color:#a7a7a7;text-align:right;font-size:14px;}
+			.ord th, .ord td { border:1px solid #888;border-width:1px; padding:0.3em 1em;text-algin:center; }
+.ord thead{
+	display: table-header-group;
+vertical-align: middle;
+border-color: inherit;
+font-size: 16px;
+}
+.ord tr{
+	display: table-row;
+vertical-align: inherit;
+border-color: inherit;
+}
+
 /*SEARCH BAR*/
 a {
         color: #ccc;
@@ -221,10 +250,9 @@ a {
     /*-------------------------------------*/	
     
     .search_neuro {
-        width: 200px;
-        padding: 15px;
-        
+        width: 200px;       
         float: right;
+        padding-right: 50px;
        
     }
     
@@ -317,3 +345,4 @@ a {
         border: 0;
         padding: 0;
     }
+ 

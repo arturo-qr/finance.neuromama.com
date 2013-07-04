@@ -1,10 +1,6 @@
   <?php
-  date_default_timezone_set('America/Los_Angeles'); 
-if(isset($_POST['submit']))
-{
-//Do all the submission part or storing in DB work and all here
-header('Location: stock_search.php');
-}
+  date_default_timezone_set('America/New_York'); 
+
 ?>
  <header>
                <div id="header">
@@ -32,21 +28,22 @@ header('Location: stock_search.php');
                                     </ul>                            
                                 </div>
                                 
-                            <div class="block_social_top">
-                                <ul>
-                                    <li><a href="http://twitter.com/NeuroMamaFinance" class="tw">Twitter</a></li>                                    
-                                    <li><a href="http://facebook.com/NeuroMamaFinance" class="fb">Facebook</a></li>                                                                     
-                                    <li><a href="http://finance.neuromama.com/rss" class="rss">RSS</a></li>                                
-                                </ul>   
+                                <div class="block_social_top">
+                                    <ul>
+                                        <li><a href="http://twitter.com/NeuroMamaFinance" class="tw">Twitter</a></li>                                    
+                                        <li><a href="http://facebook.com/NeuroMamaFinance" class="fb">Facebook</a></li>                                                                     
+                                        <li><a href="http://finance.neuromama.com/rss" class="rss">RSS</a></li>                                
+                                    </ul>   
+                                </div>
+
                             </div>
-                                                        </div>
+
                             
                             <div class="clearboth"></div>
                         </div>
                     </section>
                                   
                     <section class="bottom">
-                        
                         <div class="inner">
                             <div id="logo_top" style=" margin-left: 0px; ">
                                 <a href="http://finance.neuromama.com">
@@ -66,13 +63,21 @@ header('Location: stock_search.php');
                                     <p id="day_top_display" class="day"><?php echo date("l");?></p>
                                 </div>
                             </div>
-                              
-                            <div class="fr">
-                                <form style="width:200px"class="search_neuro cf">
-                                    <input type="text" placeholder="Search on Neuromama.com..." required>
-                                    <button type="submit">Search</button>
-                                </form> 
+                              <div class="fr" style="width:200px;">
+                            <div class="fr" style="margin-right: 50px">
+                                <img src="wp-content/themes/business-news/images/a_1.png" width="200px" height="100px">
+                                  
                             </div>
+                            <div class="fr">
+                                <form style="width:200px"class="search_neuro cf" action="http://neuromama.com/index.php?action=search&query=as&type=web">
+                                        <input type="text" name="query" value="" placeholder="Search on Neuromama.com..." required>
+                                        <input name="type" value="web" style="display:none">
+                                        <input name="action" value="search" style="display:none">
+                                        <button type="submit">Search</button>
+                                    </form> 
+                            </div>
+                        </div>
+                            
                             <div class="clearboth"></div>
                         </div>
 

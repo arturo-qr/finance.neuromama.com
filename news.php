@@ -104,9 +104,8 @@
                         
                         <div class="sidebar">
                             <script src="http://markets.financialcontent.com/stocks?Module=snapshot&Ticker=$COMP+NERO+GOOG+FB+AMZN&Output=JS"></script>
-                            <img src="wp-content/themes/business-news/images/Advertising.png"></img>
-                            <script type="text/javascript" src="http://cdn.widgetserver.com/syndication/subscriber/InsertWidget.js"></script>
-                            <script type="text/javascript">if (WIDGETBOX) WIDGETBOX.renderWidget('197fb3d1-b4b4-416d-8ebc-5a0c319221ee');</script>
+                            <img src="wp-content/themes/business-news/images/a_1.png"></img>
+                            
                         </div>
                         <div class="clearboth"></div>
                     </div>

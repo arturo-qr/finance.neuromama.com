@@ -78,13 +78,13 @@
                                     echo "<div id=\"news$i\">";
                                     $i++;
                                 ?>
-                                <div style="float: left; width:200px; height:145px;">
+                                <div style="float: left; width:200px; padding-top:10px; padding-bottom:10px;">
                                     <a href="<?php echo $item->link;?>" target="_blank">
                                         <div style=" margin: auto; width:150px; height:90px; background-image: url(<?php echo $item->children('media',true)->attributes()->url;?>); background-size: 120px 90px;">
                                         
                                         </div></a>
                                 </div>
-                                <div style="float: left;width:400px; height:145px;">
+                                <div style="float: left;width:400px; padding-top:10px; padding-bottom:10px;">
                                 <?php
                                     echo "<p class = \"publ_news\">".$item->pubDate."</p></br>";
                                     echo "<a class=\"links_news\" href=\"".$item->link."\" target=\"_blank\">".$item->title."</a>";
@@ -114,9 +114,8 @@
                         
                         <div class="sidebar">
                             <script src="http://markets.financialcontent.com/stocks?Module=snapshot&Ticker=$COMP+NERO+GOOG+FB+AMZN&Output=JS"></script>
-                            <img src="wp-content/themes/business-news/images/Advertising.png"></img>
-                            <script type="text/javascript" src="http://cdn.widgetserver.com/syndication/subscriber/InsertWidget.js"></script>
-                            <script type="text/javascript">if (WIDGETBOX) WIDGETBOX.renderWidget('197fb3d1-b4b4-416d-8ebc-5a0c319221ee');</script>
+                            <img src="wp-content/themes/business-news/images/a_1.png">
+
                         </div>
                         <div class="clearboth"></div>
                     </div>
