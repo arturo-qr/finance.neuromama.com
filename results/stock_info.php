@@ -38,52 +38,5 @@ else{
                                 echo " )</span>";
     
     echo "</div>";
-    switch ($option) {
-        case 'su':
-            # code...
-            include 'results_sumary.php'; 
-            include 'results/chart.php';
-            break;
-        case 'ob':
-            # code...
-            include 'results/order_book.php';
-            break;
-        case 'op':
-            # code...
-            include 'results/options_stock.php';
-            break;
-        case 'hp':
-            # code...
-            include 'results/historicaldata.php';            
-            break;
-        case 'ch':
-            # code...
-            include 'results/interactive_chart.php';
-            break;
-        case 'bc':
-            # code...
-            include 'results/basic_chart.php';
-            break;
-        case 'bt':
-            # code...
-            include 'results/basic_tech.php';
-
-            break;
-        case 'hd':
-            # code...
-            include 'results/headlines';
-            break;
-        case 'ks':
-            # code...
-            include 'results/key_statistics.php';
-            break;
-        default:
-            # code...
-            include 'results_sumary.php'; 
-            include 'results/chart.php';
-            break;
-    }
-
-
 }
 ?>

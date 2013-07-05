@@ -1,4 +1,5 @@
 </br></br>
+
 <h2>Order Book</h2>
 </br></br>
 <div id="book" style = "width: 600px; float:left;">
@@ -18,6 +19,7 @@
 				if (($gestor = fopen("http://finance.yahoo.com/d/quotes.csv?s=".$symbol."&f=bb6", "r")) !== FALSE) {
 				    while (($data = fgetcsv($gestor, 1000, ",")) !== FALSE) {
 				        $number = count($data);
+				        
 				        $fila++;
 				        for ($c=0; $c < $number; $c=$c+2) {
 				             
@@ -50,6 +52,7 @@
 				if (($gestor = fopen("http://finance.yahoo.com/d/quotes.csv?s=".$symbol."&f=aa5", "r")) !== FALSE) {
 				    while (($data = fgetcsv($gestor, 1000, ",")) !== FALSE) {
 				        $number = count($data);
+				        
 				        $fila++;
 				        for ($c=0; $c < $number; $c=$c+2) {
 				             

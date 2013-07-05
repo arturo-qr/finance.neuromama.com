@@ -87,7 +87,6 @@
 		}		
 		return -1;	
 	}
-
 	function options($symbol,$query,$date){		
 		$array =array();		
 		$symbol = "\"".$symbol."\"  ";		

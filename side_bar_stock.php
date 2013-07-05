@@ -17,7 +17,7 @@
 					<a href="stock_search.php?s=<?php echo $symbol;?>&o=op">Options</a>
 				</li>
 				<li>
-					<a href="stock_search.php?s=<?php echo $symbol;?>&o=hp">Historical Prices</a>
+					<a href="historical.php?s=<?php echo $symbol;?>&start=2010-01-01&end=<?php echo date("Y-m-d");?>&i=d">Historical Prices</a>
 				</li>
 			</ul>
 			<h3>Charts</h3>
@@ -55,7 +55,7 @@
 				<li>
 					<a href="/q/pr?s=GOOG+Profile">Profile</a>
 				</li>
-				<li><a href="/q/pr?s=GOOG+Profile">Key Statistics</a></li>
+				<li><a href="stock_search.php?s=<?php echo $symbol;?>&o=ks">Key Statistics</a></li>
 				<li>
 					<a href="/q/sec?s=GOOG+SEC+Filings">SEC Filings</a>
 				</li>

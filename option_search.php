@@ -4,6 +4,7 @@
     $option = $_GET['o'];
     
     $info_option=keystats($symbol,'SELECT * FROM yahoo.finance.oquote WHERE symbol=');
+    $info_option=option_statics($symbol,'SELECT * FROM yahoo.finance.oquote WHERE symbol=');
     
 ?>
 <!DOCTYPE html>

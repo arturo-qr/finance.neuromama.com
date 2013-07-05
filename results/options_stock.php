@@ -43,8 +43,8 @@
 								echo "</span>";
 							?>
 							</td>
-							<td><?PHP echo $options[$c]->bid;?></td>
-							<td><?PHP echo $options[$c]->ask;?></td>
+							<td><strong><?PHP echo $options[$c]->bid;?></strong></td>
+							<td><strong><?PHP echo $options[$c]->ask;?></strong></td>
 							<td><?PHP echo $options[$c]->vol;?></td>
 							<td><?PHP echo $options[$c]->openInt;?></td>
 							</tr>

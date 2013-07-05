@@ -2,10 +2,6 @@ body { }
 
 /* = MAIN WRAPPER
 ----------------------------------------------------------------------------------------------------------------------*/
-.main-wrapper { width: 960px; margin: 0 auto; text-align: left }
-
-h3 { font-size: 31px }
-h3, p, pre { margin: 10px 0 }
 .syntaxhighlighter { padding: 5px 0 }
 
 input {  }
