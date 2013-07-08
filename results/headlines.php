@@ -12,7 +12,7 @@
 					$items = $xml->channel->item; //gets the title of the document.		
 				/*HEADLINERS OF EACH SYMBOL, JUST THE URL NEEDS TO BE CHANGED TO THE SPECIFIC SYMBOL*/
 					foreach($items as $item){
-						if($i<5){
+						if($i<15){
 								$i++;
 								?>
 								<div style="float:left; height:40px; width:600px;border-bottom: 1px solid #000;">

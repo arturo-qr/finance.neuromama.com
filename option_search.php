@@ -1,11 +1,9 @@
 <?php 
 	require 'functions/YQL_functions.php';
     $symbol = $_GET['s'];
-    $option = $_GET['o'];
-    
-    $info_option=keystats($symbol,'SELECT * FROM yahoo.finance.oquote WHERE symbol=');
-    $info_option=option_statics($symbol,'SELECT * FROM yahoo.finance.oquote WHERE symbol=');
-    
+    $date = (is_null($_GET['d']) ? "\"".date("Y-m")."\""  : "\"".$_GET['d']."\"");
+    $info=quotes($symbol,'select * from yahoo.finance.quotes where symbol=');
+    $info_op_stat=option_symbol($symbol,'select * FROM yahoo.finance.option_contracts WHERE symbol=');
 ?>
 <!DOCTYPE html>
 <html lang="EN-US">
@@ -33,7 +31,26 @@
                                 <div id = "result_query" class = "result_query">
                                     <?php
                                         if (!$symbol=="") {
-                                            include 'results/infos.php';       
+                                            include 'results/stock_info.php';
+                                            ?>
+                                        <div class="dates_option">
+                                        </br></br>
+                                            View by Expiration:
+                                        </br></br>
+                                            <?php
+                                                $cont = count($info_op_stat->contract);
+                                                $c=0;
+                                                while ($c<$cont) {
+                                                    # code...
+                                                    echo "<a href=\"option_search.php?s=".$symbol."&d=".$info_op_stat->contract[$c]."\">   ".$info_op_stat->contract[$c]." </a>";
+                                                    echo " | ";
+                                                    $c++;
+                                                }
+                                            ?>
+                                        </div>
+                                        </br></br>  
+                                            <?php
+                                            include 'results/options_stock.php';
                                          }
                                         else{
                                             echo "<div id=\"nav_bar_stock\" style=\"height: 1280px; width: 300px;\">";

@@ -1,4 +1,98 @@
+.main_keys_out{ font-style:bold;color: #000; border: 1px #ccc solid;border-collapse: separate; font-family: consolas; text-align: right;}
+.main_keys_out:hover{
+	color: #fff;
+			text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+			background: #f06343;
+			background: -webkit-linear-gradient(bottom, #f06343, #f27d63);
+			background: -ms-linear-gradient(bottom, #f06343, #f27d63); 
+			background: -moz-linear-gradient(bottom, #f06343, #f27d63);
+			background: -o-linear-gradient(bottom, #f06343, #f27d63);
+			border-color: transparent;
+}
+table.main_keys_title {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
+}
+table.main_keys_title th {
+	background:#b5cfd2;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #999999;
+}
+table.main_keys_title td {
+	background:#dcddc0;
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #999999;
+}
+.keys_th1{
+	font-size: 13px;
+	background:#dcddc0;
+	border-width: 1px;
+	padding: 0px;
+	border-style: solid;
+	border-color: #999999;
 
+}
+
+
+
+.charts a:link {color: #000; font-weight: bold;}
+.charts a:visited {color: #000; font-weight: bold;}
+.charts a:active {}
+.charts a:hover {text-decoration: underline; color: blue;}
+.charts{
+	font-size: 13px;
+	font-family: 'Lato';
+
+}
+.op_table{
+	font-size: 20px;
+	font-family: Arial,Helvetica,sans-serif;
+	color: rgb(26, 26, 26);
+	font-weight: normal;
+	line-height: 1em;
+	padding-top: 20px;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+
+}
+.dates_option{
+	
+	font-size: 16px;
+	font-family: 'Lato';
+}
+.p_riod{
+	font-size: 16px;
+	font-family: 'Lato';
+}
+.dates_option a{
+	/* Layout */
+			/* Typography */
+			font-family:  Helvetica, Arial, sans-serif;
+			color: #f06343;
+			text-decoration: none;
+			text-transform: uppercase;
+			text-shadow: 0 1px 0 #fff;
+			font-size: 14px;
+}
+.dates_option a:hover{
+	color: #fff;
+			text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+			background: #f06343;
+			background: -webkit-linear-gradient(bottom, #f06343, #f27d63);
+			background: -ms-linear-gradient(bottom, #f06343, #f27d63); 
+			background: -moz-linear-gradient(bottom, #f06343, #f27d63);
+			background: -o-linear-gradient(bottom, #f06343, #f27d63);
+			border-color: transparent;
+
+}
 
 .error_stock{
 	margin-top: 18px;

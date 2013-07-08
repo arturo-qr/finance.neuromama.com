@@ -52,10 +52,6 @@
                                     # code...
                                     include 'news/asia.php';
                                     break;
-                                case 'brics':
-                                    # code...
-                                    include 'news/brics.php';
-                                    break;
                                 case 'europe':
                                     # code...
                                     include 'news/europe.php';

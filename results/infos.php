@@ -69,9 +69,9 @@ else{
             include 'results/basic_tech.php';
 
             break;
-        case 'hd':
+        case 'hl':
             # code...
-            include 'results/headlines';
+            include 'results/headlines.php';
             break;
         case 'ks':
             # code...

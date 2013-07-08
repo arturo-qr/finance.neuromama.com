@@ -112,7 +112,7 @@
                                             <li id="menu-item-68" class="menu-item menu-item-68">
                                                 <a title="Asia" href="news.php?t=asia">Asia</a>
                                             </li>
-                                            <li id="menu-item-71" class="menu-item menu-item-71"><a title="BRICS" href="news.php?t=brics">BRICS</a></li>
+                                            
                                             <li id="menu-item-73" class="menu-item menu-item-73"><a title="Europe" href="news.php?t=europe">Europe</a></li>
                                             <li id="menu-item-75" class="menu-item menu-item-75"><a title="Middle East" href="news.php?t=middle east">Middle East</a></li>
                                             <li id="menu-item-78" class="menu-item menu-item-78"><a title="USA" href="news.php?t=usa">USA</a></li>

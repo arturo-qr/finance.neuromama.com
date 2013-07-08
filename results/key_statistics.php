@@ -1,20 +1,30 @@
-<table width="580" id="yfncsumtab" cellpadding="0" cellspacing="0" border="0">
+<?php 
+  #    Output easy-to-read numbers
+  #    by james at bandit.co.nz
+  function f_number($n) {
+    // first strip any formatting;
+    $n = (0+str_replace(",","",$n));
+        
+    // is this a number?
+    if(!is_numeric($n)) return false;
+        
+    // now filter it;
+    if($n>1000000000000) return round(($n/1000000000000),1).' T';
+    else if($n>1000000000) return round(($n/1000000000),1).' B';
+    else if($n>1000000) return round(($n/1000000),1).' M';
+    else if($n>1000) return round(($n/1000),1).' K';
+    return number_format($n,2,'.',',');
+    }
+?>
+<table width="590" id="table_keys" cellpadding="0" cellspacing="0" border="0">
       <tbody>
         <tr>
           <td colspan="3">
-            <form action="/q/ks" accept-charset="utf-8"></form>
-            <table border="0" cellspacing="0" class="yfnc_modtitle1 c3">
+            <table border="0" cellspacing="0" class="head_table_keys">
               <tbody>
                 <tr>
                   <td>
-                    <big class="c1">Key Statistics</big>
-                  </td>
-                  <td align="right">
-                    <small><b>Get Key Statistics for:</b> <input name="s" id="pageTicker"
-                    size="10" class="yui-ac-input" autocomplete=
-                    "off" /></small><input id="get_quote_logic_opt" name="ql" value="1"
-                    type="hidden" autocomplete="off" /><input value="GO" type="submit"
-                    class="c2" />
+                    <h1>Key Statistics</h1>
                   </td>
                 </tr>
               </tbody>
@@ -22,12 +32,8 @@
           </td>
         </tr>
         <tr valign="top">
-          <td width="270" class="yfnc_modtitlew1">
-            Data provided by <a href=
-            "http://us.rd.yahoo.com/finance/capiq/SIG=10r7m9m4m/*http://www.capitaliq.com/">
-            Capital IQ</a>, except where noted.<br />
-            <table width="100%" class="yfnc_mod_table_title1" cellpadding="2"
-            cellspacing="0" border="0">
+          <td width="270" class="main_keys_heads">
+            <table width="100%" class="main_keys_title" cellpadding="2"cellspacing="0" border="0">
               <tbody>
                 <tr>
                   <th class="c4" align="left">
@@ -39,88 +45,82 @@
                 </tr>
               </tbody>
             </table>
-            <table class="yfnc_datamodoutline1" width="100%" cellpadding="0" cellspacing=
-            "0" border="0">
+            <table class="main_keys_data" width="100%" cellpadding="0" cellspacing="0" border="0">
               <tbody>
                 <tr>
                   <td>
                     <table width="100%" cellpadding="2" cellspacing="1" border="0">
                       <tbody>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Market Cap (intraday)<span class="c5"><sup>5</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            Market Cap (<?php echo $info_keys->MarketCap->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            <span id="yfs_j10_goog">296.43B</span>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Enterprise Value (Jul 5, 2013)<span class=
-                            "c5"><sup>3</sup></span>:
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            249.35B
+                          <td class="main_keys_out">
+                            <span id="data_keys"><?php echo f_number($info_keys->MarketCap->content);?></span>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Trailing P/E (ttm, intraday):
+                          <td class="main_keys_th" width="74%">
+                            Enterprise Value (<?php echo $info_keys->EnterpriseValue->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            26.73
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Forward P/E (fye Dec 31, 2014)<span class=
-                            "c5"><sup>1</sup></span>:
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            16.74
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->EnterpriseValue->content);?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            PEG Ratio (5 yr expected)<span class=
-                            "c5"><sup>1</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            Trailing P/E (<?php echo $info_keys->TrailingPE->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            1.29
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Price/Sales (ttm):
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            5.50
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->TrailingPE->content;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Price/Book (mrq):
+                          <td class="main_keys_th" width="74%">
+                            Forward P/E (<?php echo $info_keys->ForwardPE->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            3.89
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Enterprise Value/Revenue (ttm)<span class=
-                            "c5"><sup>3</sup></span>:
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            4.66
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->ForwardPE->content;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Enterprise Value/EBITDA (ttm)<span class=
-                            "c5"><sup>6</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            PEG Ratio (<?php echo $info_keys->PEGRatio->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            14.83
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->PEGRatio->content;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Price/Sales (<?php echo $info_keys->PriceSales->term;?>):
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->PriceSales->content;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Price/Book (<?php echo $info_keys->PriceBook->term;?>):
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->PriceBook->content;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Enterprise Value/Revenue (<?php echo $info_keys->EnterpriseValueRevenue->term;?>):
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->EnterpriseValueRevenue->content;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Enterprise Value/EBITDA (<?php echo $info_keys->EnterpriseValueEBITDA->term;?>):
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->EnterpriseValueEBITDA->content;?>
                           </td>
                         </tr>
                       </tbody>
@@ -129,7 +129,7 @@
                 </tr>
               </tbody>
             </table>
-            <table width="100%" class="yfnc_mod_table_title1" cellpadding="2"
+            <table width="100%" class="main_keys_title" cellpadding="2"
             cellspacing="0" border="0">
               <tbody>
                 <tr>
@@ -142,7 +142,7 @@
                 </tr>
               </tbody>
             </table>
-            <table class="yfnc_datamodoutline1" width="100%" cellpadding="0" cellspacing=
+            <table class="main_keys_data" width="100%" cellpadding="0" cellspacing=
             "0" border="0">
               <tbody>
                 <tr>
@@ -150,24 +150,24 @@
                     <table width="100%" cellpadding="2" cellspacing="1" border="0">
                       <tbody>
                         <tr>
-                          <td colspan="2" class="c6">
+                          <td colspan="2" class="keys_th1">
                             Fiscal Year
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
+                          <td class="main_keys_th" width="74%">
                             Fiscal Year Ends:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            Dec 30
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->FiscalYearEnds;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Most Recent Quarter (mrq):
+                          <td class="main_keys_th" width="74%">
+                            Most Recent Quarter (<?php echo $info_keys->MostRecentQuarter->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            Mar 31, 2013
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->MostRecentQuarter->content;?>
                           </td>
                         </tr>
                       </tbody>
@@ -176,32 +176,31 @@
                 </tr>
               </tbody>
             </table>
-            <table class="yfnc_datamodoutline1" width="100%" cellpadding="0" cellspacing=
-            "0" border="0">
+            <table class="main_keys_data" width="100%" cellpadding="0" cellspacing="0" border="0">
               <tbody>
                 <tr>
                   <td>
                     <table width="100%" cellpadding="2" cellspacing="1" border="0">
                       <tbody>
                         <tr>
-                          <td colspan="2" class="c6">
+                          <td colspan="2" class="keys_th1">
                             Profitability
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Profit Margin (ttm):
+                          <td class="main_keys_th" width="74%">
+                            Profit Margin (<?php echo $info_keys->MostRecentQuarter->content;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            20.92%
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->MostRecentQuarter->content;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Operating Margin (ttm):
+                          <td class="main_keys_th" width="74%">
+                            Operating Margin (<?php echo $info_keys->OperatingMargin->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            25.30%
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->OperatingMargin->content;?>
                           </td>
                         </tr>
                       </tbody>
@@ -210,7 +209,7 @@
                 </tr>
               </tbody>
             </table>
-            <table class="yfnc_datamodoutline1" width="100%" cellpadding="0" cellspacing=
+            <table class="main_keys_data" width="100%" cellpadding="0" cellspacing=
             "0" border="0">
               <tbody>
                 <tr>
@@ -218,24 +217,24 @@
                     <table width="100%" cellpadding="2" cellspacing="1" border="0">
                       <tbody>
                         <tr>
-                          <td colspan="2" class="c6">
+                          <td colspan="2" class="keys_th1">
                             Management Effectiveness
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Return on Assets (ttm):
+                          <td class="main_keys_th" width="74%">
+                            Return on Assets (<?php echo $info_keys->ReturnonAssets->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            9.73%
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->ReturnonAssets->content;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Return on Equity (ttm):
+                          <td class="main_keys_th" width="74%">
+                            Return on Equity (<?php echo $info_keys->ReturnonEquity->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            16.36%
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->ReturnonEquity->content;?>
                           </td>
                         </tr>
                       </tbody>
@@ -244,7 +243,7 @@
                 </tr>
               </tbody>
             </table>
-            <table class="yfnc_datamodoutline1" width="100%" cellpadding="0" cellspacing=
+            <table class="main_keys_data" width="100%" cellpadding="0" cellspacing=
             "0" border="0">
               <tbody>
                 <tr>
@@ -252,72 +251,72 @@
                     <table width="100%" cellpadding="2" cellspacing="1" border="0">
                       <tbody>
                         <tr>
-                          <td colspan="2" class="c6">
+                          <td colspan="2" class="keys_th1">
                             Income Statement
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Revenue (ttm):
+                          <td class="main_keys_th" width="74%">
+                            Revenue (<?php echo $info_keys->Revenue->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            53.50B
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Revenue Per Share (ttm):
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            162.86
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->Revenue->content);?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Qtrly Revenue Growth (yoy):
+                          <td class="main_keys_th" width="74%">
+                            Revenue Per Share (<?php echo $info_keys->RevenuePerShare->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            31.20%
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Gross Profit (ttm):
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            29.54B
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->RevenuePerShare->content;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            EBITDA (ttm)<span class="c5"><sup>6</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            Qtrly Revenue Growth (<?php echo $info_keys->QtrlyRevenueGrowth->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            16.81B
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Net Income Avl to Common (ttm):
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            11.22B
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->QtrlyRevenueGrowth->content;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Diluted EPS (ttm):
+                          <td class="main_keys_th" width="74%">
+                            Gross Profit (<?php echo $info_keys->GrossProfit->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            33.42
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->GrossProfit->content);?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Qtrly Earnings Growth (yoy):
+                          <td class="main_keys_th" width="74%">
+                            EBITDA (<?php echo $info_keys->EBITDA->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            15.80%
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->EBITDA->content);?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Net Income Avl to Common (<?php echo $info_keys->NetIncomeAvltoCommon->term;?>):
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->NetIncomeAvltoCommon->content);?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Diluted EPS (<?php echo $info_keys->DilutedEPS->term;?>):
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->DilutedEPS->content;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Qtrly Earnings Growth (<?php echo $info_keys->QtrlyEarningsGrowth->term;?>):
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->QtrlyEarningsGrowth->content;?>
                           </td>
                         </tr>
                       </tbody>
@@ -326,7 +325,7 @@
                 </tr>
               </tbody>
             </table>
-            <table class="yfnc_datamodoutline1" width="100%" cellpadding="0" cellspacing=
+            <table class="main_keys_data" width="100%" cellpadding="0" cellspacing=
             "0" border="0">
               <tbody>
                 <tr>
@@ -334,56 +333,56 @@
                     <table width="100%" cellpadding="2" cellspacing="1" border="0">
                       <tbody>
                         <tr>
-                          <td colspan="2" class="c6">
+                          <td colspan="2" class="keys_th1">
                             Balance Sheet
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Total Cash (mrq):
+                          <td class="main_keys_th" width="74%">
+                            Total Cash (<?php echo $info_keys->TotalCash->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            50.10B
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Total Cash Per Share (mrq):
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            151.00
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->TotalCash->content);?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Total Debt (mrq):
+                          <td class="main_keys_th" width="74%">
+                            Total Cash Per Share (<?php echo $info_keys->TotalCashPerShare->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            7.38B
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Total Debt/Equity (mrq):
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            9.77
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->TotalCashPerShare->content;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Current Ratio (mrq):
+                          <td class="main_keys_th" width="74%">
+                            Total Debt (<?php echo $info_keys->TotalDebt->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            4.74
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->TotalDebt->content);?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Book Value Per Share (mrq):
+                          <td class="main_keys_th" width="74%">
+                            Total Debt/Equity (<?php echo $info_keys->TotalDebtEquity->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            228.01
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->TotalDebtEquity->content;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Current Ratio (<?php echo $info_keys->CurrentRatio->term;?>):
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->CurrentRatio->content;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Book Value Per Share (<?php echo $info_keys->BookValuePerShare->term;?>):
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->BookValuePerShare->content;?>
                           </td>
                         </tr>
                       </tbody>
@@ -392,7 +391,7 @@
                 </tr>
               </tbody>
             </table>
-            <table class="yfnc_datamodoutline1" width="100%" cellpadding="0" cellspacing=
+            <table class="main_keys_data" width="100%" cellpadding="0" cellspacing=
             "0" border="0">
               <tbody>
                 <tr>
@@ -400,24 +399,24 @@
                     <table width="100%" cellpadding="2" cellspacing="1" border="0">
                       <tbody>
                         <tr>
-                          <td colspan="2" class="c6">
+                          <td colspan="2" class="keys_th1">
                             Cash Flow Statement
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Operating Cash Flow (ttm):
+                          <td class="main_keys_th" width="74%">
+                            Operating Cash Flow (<?php echo $info_keys->OperatingCashFlow->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            16.56B
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->OperatingCashFlow->content);?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Levered Free Cash Flow (ttm):
+                          <td class="main_keys_th" width="74%">
+                            Levered Free Cash Flow (<?php echo $info_keys->LeveredFreeCashFlow->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            10.99B
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->LeveredFreeCashFlow->content);?>
                           </td>
                         </tr>
                       </tbody>
@@ -426,39 +425,12 @@
                 </tr>
               </tbody>
             </table>
-            <table cellpadding="2" border="0" width="100%" cellspacing="0">
-              <tbody>
-                <tr>
-                  <td height="3">
-                    <spacer height="3" width="1" type="block" />
-                  </td>
-                </tr>
-                <tr>
-                  <td align="center">
-                    View Financials<br />
-                    <b><a href="/q/is?s=GOOG">Income Statement</a> - <a href=
-                    "/q/bs?s=GOOG">Balance Sheet</a> - <a href="/q/cf?s=GOOG">Cash
-                    Flow</a></b>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+           
           </td>
           <td></td>
-          <td width="270" class="yfnc_modtitlew2" align="center">
-            <!--ADS:LOCATION=LREC-->
-            <div class="c7">
-              <!--Vendor: Right Media, Format: IFrame -->
-              <!--QYZ 1586381051,3085532551,98.139.32.243;;LREC;95941353;1;--><script language="javascript"
-              type="text/javascript">
-//<![CDATA[
-              if(window.xzq_d==null)window.xzq_d=new Object();
-              window.xzq_d['9E73qEPDn2Y-']='(as$12ruu38j4,aid$9E73qEPDn2Y-,bi$1586381051,cr$3085532551,ct$25,at$H,eob$-1)';
-              //]]>
-              </script>
-            </div><span id="yfs_ad_"></span><span id="yfs_ad_"></span><br />
-            <table width="100%" class="yfnc_mod_table_title1" cellpadding="2"
-            cellspacing="0" border="0">
+          <td width="270"style="padding-left:20px;" class="table_info" align="center">
+            
+            <table width="100%" class="main_keys_title" cellpadding="2" cellspacing="0" border="0">
               <tbody>
                 <tr>
                   <th class="c4" align="left">
@@ -470,7 +442,7 @@
                 </tr>
               </tbody>
             </table>
-            <table class="yfnc_datamodoutline1" width="100%" cellpadding="0" cellspacing=
+            <table class="main_keys_data" width="100%" cellpadding="0" cellspacing=
             "0" border="0">
               <tbody>
                 <tr>
@@ -478,67 +450,64 @@
                     <table width="100%" cellpadding="2" cellspacing="1" border="0">
                       <tbody>
                         <tr>
-                          <td colspan="2" class="c6">
+                          <td colspan="2" class="keys_th1">
                             Stock Price History
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
+                          <td class="main_keys_th" width="74%">
                             Beta:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            1.15
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->Beta;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            52-Week Change<span class="c5"><sup>3</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            52-Week Change<span class="foo">:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            48.75%
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            S&amp;P500 52-Week Change<span class=
-                            "c5"><sup>3</sup></span>:
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            18.12%
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->p_52_WeekChange;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            52-Week High (May 20, 2013)<span class=
-                            "c5"><sup>3</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            S&amp;P500 52-Week Change:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            920.60
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            52-Week Low (Jul 12, 2012)<span class=
-                            "c5"><sup>3</sup></span>:
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            562.09
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->SP50052_WeekChange;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            50-Day Moving Average<span class="c5"><sup>3</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            52-Week High (<?php echo $info_keys->p_52_WeekHigh->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            882.38
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->p_52_WeekHigh->content;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            200-Day Moving Average<span class="c5"><sup>3</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            52-Week Low (<?php echo $info_keys->p_52_WeekLow->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            809.13
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->p_52_WeekLow->content;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            50-Day Moving Average:
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->p_50_DayMovingAverage;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            200-Day Moving Average:
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->p_200_DayMovingAverage;?>
                           </td>
                         </tr>
                       </tbody>
@@ -547,7 +516,7 @@
                 </tr>
               </tbody>
             </table>
-            <table class="yfnc_datamodoutline1" width="100%" cellpadding="0" cellspacing=
+            <table class="main_keys_data" width="100%" cellpadding="0" cellspacing=
             "0" border="0">
               <tbody>
                 <tr>
@@ -555,92 +524,88 @@
                     <table width="100%" cellpadding="2" cellspacing="1" border="0">
                       <tbody>
                         <tr>
-                          <td colspan="2" class="c6">
+                          <td colspan="2" class="keys_th1">
                             Share Statistics
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Avg Vol (3 month)<span class="c5"><sup>3</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            Avg Vol (<?php echo $info_keys->AvgVol[0]->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            2,353,530
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Avg Vol (10 day)<span class="c5"><sup>3</sup></span>:
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            2,042,580
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->AvgVol[0]->content;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Shares Outstanding<span class="c5"><sup>5</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            Avg Vol (<?php echo $info_keys->AvgVol[1]->term;?>)
                           </td>
-                          <td class="yfnc_tabledata1">
-                            331.77M
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->AvgVol[1]->content;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
+                          <td class="main_keys_th" width="74%">
+                            Shares Outstanding:
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->SharesOutstanding);?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
                             Float:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            270.89M
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->Float);?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            % Held by Insiders<span class="c5"><sup>1</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            % Held by Insiders<span class="foo">:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            0.19%
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            % Held by Institutions<span class="c5"><sup>1</sup></span>:
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            86.70%
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->PercentageHeldbyInsiders;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Shares Short (as of Jun 14, 2013)<span class=
-                            "c5"><sup>3</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            % Held by Institutions:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            4.26M
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Short Ratio (as of Jun 14, 2013)<span class=
-                            "c5"><sup>3</sup></span>:
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            1.80
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->PercentageHeldbyInstitutions;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Short % of Float (as of Jun 14, 2013)<span class=
-                            "c5"><sup>3</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            Shares Short (<?php echo $info_keys->SharesShort[0]->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            1.60%
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->SharesShort[0]->content);?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Shares Short (prior month)<span class=
-                            "c5"><sup>3</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            Short Ratio (<?php echo $info_keys->ShortRatio->term;?>):
                           </td>
-                          <td class="yfnc_tabledata1">
-                            3.76M
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->ShortRatio->content;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Short % of Float (<?php echo $info_keys->ShortPercentageofFloat->term;?>):
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->ShortPercentageofFloat->content;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Shares Short (<?php echo $info_keys->SharesShort[1]->term;?>):
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo f_number($info_keys->SharesShort[1]->content);?>
                           </td>
                         </tr>
                       </tbody>
@@ -649,7 +614,7 @@
                 </tr>
               </tbody>
             </table>
-            <table class="yfnc_datamodoutline1" width="100%" cellpadding="0" cellspacing=
+            <table class="main_keys_data" width="100%" cellpadding="0" cellspacing=
             "0" border="0">
               <tbody>
                 <tr>
@@ -657,94 +622,88 @@
                     <table width="100%" cellpadding="2" cellspacing="1" border="0">
                       <tbody>
                         <tr>
-                          <td colspan="2" class="c6">
+                          <td colspan="2" class="keys_th1">
                             Dividends &amp; Splits
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Forward Annual Dividend Rate<span class=
-                            "c5"><sup>4</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            Forward Annual Dividend Rate:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            N/A
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Forward Annual Dividend Yield<span class=
-                            "c5"><sup>4</sup></span>:
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            N/A
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->ForwardAnnualDividendRate;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Trailing Annual Dividend Yield<span class=
-                            "c5"><sup>3</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            Forward Annual Dividend Yield<:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            N/A
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Trailing Annual Dividend Yield<span class=
-                            "c5"><sup>3</sup></span>:
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            N/A
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->ForwardAnnualDividendYield;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            5 Year Average Dividend Yield<span class=
-                            "c5"><sup>4</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            Trailing Annual Dividend Yield:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            N/A
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Payout Ratio<span class="c5"><sup>4</sup></span>:
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            N/A
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->TrailingAnnualDividendYield[0];?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Dividend Date<span class="c5"><sup>3</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            Trailing Annual Dividend Yield:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            N/A
-                          </td>
-                        </tr>
-                        <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Ex-Dividend Date<span class="c5"><sup>4</sup></span>:
-                          </td>
-                          <td class="yfnc_tabledata1">
-                            N/A
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->TrailingAnnualDividendYield[1];?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Last Split Factor (new per old)<span class=
-                            "c5"><sup>2</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            5 Year Average Dividend Yield:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            N/A
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->p_5YearAverageDividendYield;?>
                           </td>
                         </tr>
                         <tr>
-                          <td class="yfnc_tablehead1" width="74%">
-                            Last Split Date<span class="c5"><sup>3</sup></span>:
+                          <td class="main_keys_th" width="74%">
+                            Payout Ratio:
                           </td>
-                          <td class="yfnc_tabledata1">
-                            N/A
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->PayoutRatio;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Dividend Date:
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->DividendDate;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Ex-Dividend Date:
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->Ex_DividendDate;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Last Split Factor (<?php echo $info_keys->LastSplitFactor->term;?>):
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->LastSplitFactor->content;?>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="main_keys_th" width="74%">
+                            Last Split Date<span class="foo"><sup>3</sup></span>:
+                          </td>
+                          <td class="main_keys_out">
+                            <?php echo $info_keys->LastSplitDate;?>
                           </td>
                         </tr>
                       </tbody>
@@ -752,22 +711,22 @@
                   </td>
                 </tr>
               </tbody>
-            </table><br />
-            <span id="yfs_ad_"></span><span id="yfs_ad_"></span><span id=
-            "yfs_ad_"></span>
+            </table><br /><br />
           </td>
         </tr>
         <tr>
           <td colspan="3">
             <table cellpadding="2" border="0" cellspacing="0" width="100%">
               <tbody>
-                <tr>
+                <!-- <tr>
                   <td align="left">
                     See <a href=
                     "http://help.yahoo.com/l/us/yahoo/finance/tools/fitakeystats.html">Key
                     Statistics Help</a> for definitions of terms used.
                   </td>
-                </tr>
+                </tr> -->
+                <br /><br />
+                <br /><br />
                 <tr>
                   <td align="left">
                     <small><strong>Abbreviation Guide:</strong> <strong>K</strong> =
@@ -782,18 +741,18 @@
                     <small><strong>lfy</strong> = Last Fiscal Year (as of Dec 31,
                     2012)</small><br />
                     <small><strong>fye</strong> = Fiscal Year Ending</small><br />
-                    <span class="c5"><sup>1</sup></span> <small>Data provided by Thomson
+                    <span class="foo"><sup>1</sup></span> <small>Data provided by Thomson
                     Reuters</small><br />
-                    <span class="c5"><sup>2</sup></span> <small>Data provided by EDGAR
+                    <span class="foo"><sup>2</sup></span> <small>Data provided by EDGAR
                     Online</small><br />
-                    <span class="c5"><sup>3</sup></span> <small>Data derived from
+                    <span class="foo"><sup>3</sup></span> <small>Data derived from
                     multiple sources or calculated by Yahoo! Finance</small><br />
-                    <span class="c5"><sup>4</sup></span> <small>Data provided by
+                    <span class="foo"><sup>4</sup></span> <small>Data provided by
                     Morningstar, Inc.</small><br />
-                    <span class="c5"><sup>5</sup></span> <small>Shares outstanding is
+                    <span class="foo"><sup>5</sup></span> <small>Shares outstanding is
                     taken from the most recently filed quarterly or annual report and
                     Market Cap is calculated using shares outstanding.</small><br />
-                    <span class="c5"><sup>6</sup></span> <small>EBITDA is calculated by
+                    <span class="foo"><sup>6</sup></span> <small>EBITDA is calculated by
                     Capital IQ using methodology that may differ from that used by a
                     company in its reporting</small><br />
                     <br />

@@ -2,13 +2,12 @@
 	require 'functions/YQL_functions.php';
     $symbol = $_GET['s'];
     $option = $_GET['o'];
-    
+
     $info=quotes($symbol,'select * from yahoo.finance.quotes where symbol=');
     $info_keys=keystats($symbol,'select * from yahoo.finance.keystats where symbol=');
-    
 ?>
 <!DOCTYPE html>
-<html lang="EN-US">
+<html lang="EN-US" encoding="UTF-8">
     <?php
         include 'header.php';
     ?>

@@ -14,7 +14,7 @@
 					<a href="stock_search.php?s=<?php echo $symbol;?>&o=ob">Order Book</a>
 				</li>
 				<li>
-					<a href="stock_search.php?s=<?php echo $symbol;?>&o=op">Options</a>
+					<a href="option_search.php?s=<?php echo $symbol;?>&d=">Options</a>
 				</li>
 				<li>
 					<a href="historical.php?s=<?php echo $symbol;?>&start=2010-01-01&end=<?php echo date("Y-m-d");?>&i=d">Historical Prices</a>
@@ -22,20 +22,18 @@
 			</ul>
 			<h3>Charts</h3>
 			<ul>
+				
 				<li>
-					<a href="stock_search.php?s=<?php echo $symbol;?>&o=su">Interactive</a>
+					<a href="basic_chart.php?s=<?php echo $symbol;?>&c=&q=&t=&l=&z=">Basic Chart</a>
 				</li>
 				<li>
-					<a href="stock_search.php?s=<?php echo $symbol;?>&o=su">Basic Chart</a>
-				</li>
-				<li>
-					<a href="stock_search.php?s=<?php echo $symbol;?>&So=su">Basic Tech. Analysis</a>
+					<a href="chart_adv.php?s=<?php echo $symbol;?>&p&a&c&a&q=&t=&l=&z=">Basic Tech. Analysis</a>
 				</li>
 			</ul>
 			<h3>News &amp; Info</h3>
 			<ul>
 				<li>
-					<a href="#Headlines" onClick=getNewPage('process.php?s=<?php echo $symbol;?>');>Headlines</a>
+					<a href="stock_search.php?s=<?php echo $symbol;?>&o=hl">Headlines</a>
 				</li>
 				<li>
 					<a href="/q/p?s=GOOG+Press+Releases">Press Releases</a>

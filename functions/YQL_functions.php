@@ -93,7 +93,6 @@
 		$api = 'http://query.yahooapis.com/v1/public/yql?q=';		
 		$query = $query.$symbol." AND expiration=".$date;		
 		$params = '&env=http://datatables.org/alltables.env&format=json';
-		
 		$session = curl_init($api.urlencode($query).$params);		
 		curl_setopt($session, CURLOPT_RETURNTRANSFER,true);  		
 		$json = curl_exec($session);		
@@ -113,7 +112,6 @@
 		$api = 'http://query.yahooapis.com/v1/public/yql?q=';		
 		$query = $query.$symbol;	
 		$params = '&env=http://datatables.org/alltables.env&format=json';
-		
 		$session = curl_init($api.urlencode($query).$params);		
 		curl_setopt($session, CURLOPT_RETURNTRANSFER,true);  		
 		$json = curl_exec($session);		

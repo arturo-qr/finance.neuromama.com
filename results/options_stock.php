@@ -1,10 +1,16 @@
-</br></br>		
+</br></br>	
 <?php
-			$date = "\"".date("Y").'-'.date("m")."\"";
-			$options= options($symbol,'select * from yahoo.finance.options where symbol=',$date);
+	#$date = "\"".date("Y").'-'.date("m")."\"";
+	$options= options($symbol,'select * from yahoo.finance.options where symbol=',$date);
 			$number = count($options);
 			$c=0;
-			echo "<div class=\"hi\"><h1>Call options</h1></div>";
+			if ($date=="\"\"") {
+				# code...
+				echo "<p class=\"p_riod\">Period: <strong>".date("Y-m")."</strong></p>";
+			}
+			else echo "<p class=\"p_riod\">Period: <strong>".$date."</strong></p>";
+			
+			echo "<div class=\"op_table\">Call options</div>";
 ?>
 <table id="hi" style="margin-bottom: 20px;">
 	<tbody>
@@ -24,7 +30,7 @@
 				        ?>
 				            <tr>
 							<td><?PHP echo $options[$c]->strikePrice;?></td>
-							<td><a href="results/forms"></a> <?PHP echo $options[$c]->symbol;?></td>
+							<td><a href="results/forms"> <?PHP echo $options[$c]->symbol;?></a></td>
 							<td><?PHP echo $options[$c]->lastPrice;?></td>
 							<td><?PHP 
 								if(($options[$c]->change) > 0){
@@ -59,7 +65,7 @@
 </table>
 
 <?php 
-	echo "<div class=\"hi\"><h1>Put options</h1></div>";
+	echo "<div class=\"op_table\">Put options</div>";
 ?>
 <table id="hi" style="margin-bottom: 20px;">
 	<tbody>
